@@ -8,10 +8,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SpaServices;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using VueCliMiddleware;
 
 
 namespace CoincidenceApp
@@ -28,6 +30,7 @@ namespace CoincidenceApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+          services.AddSpaStaticFiles(opt => opt.RootPath = "ClientApp/dist");
             services.AddControllers();
             services.AddDbContext<DataContext>();
               //  options.UseSqlServer(Configuration.GetConnectionString("DataContext")));
@@ -51,9 +54,21 @@ namespace CoincidenceApp
 
             app.UseAuthorization();
 
+            // app.UseEndpoints(endpoints =>
+            // {
+            //     endpoints.MapControllers();
+            // });
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+              endpoints.MapControllers();
+
+              endpoints.MapToVueCliProxy(
+                "{*path}",
+                new SpaOptions { SourcePath = "ClientApp" },
+                npmScript: (System.Diagnostics.Debugger.IsAttached) ? "serve" : null,
+                regex: "Compiled successfully",
+                forceKill: true
+              );
             });
         }
     }
