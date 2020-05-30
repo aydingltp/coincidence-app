@@ -6,6 +6,8 @@ using CoincidenceApp.Models;
 using CoincidenceApp.Models.Tesaduf;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices;
@@ -20,6 +22,7 @@ namespace CoincidenceApp
 {
   public class Startup
   {
+    readonly string Mycors = "CorsPolicy";
     public Startup(IConfiguration configuration)
     {
       Configuration = configuration;
@@ -38,7 +41,13 @@ namespace CoincidenceApp
       services.AddHostedService<TimedHostedService>();
         services.AddControllers();
       services.AddRazorPages();
+      services.AddCors(options => options.AddPolicy(Mycors,
+        builder =>
+        {
+          builder.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+        }));
       services.AddSpaStaticFiles(opt => opt.RootPath = "ClientApp/dist");
+      
       
     }
 
@@ -52,14 +61,16 @@ namespace CoincidenceApp
 
       app.UseHttpsRedirection();
 
-      app.UseRouting();
 
-      app.UseAuthorization();
       app.UseSpaStaticFiles();
       // app.UseEndpoints(endpoints =>
       // {
       //     endpoints.MapControllers();
       // });
+      app.UseRouting();
+      app.UseCors(Mycors);
+      app.UseAuthorization();
+
       app.UseEndpoints(endpoints =>
       {
         endpoints.MapControllers();

@@ -36,7 +36,7 @@ namespace CoincidenceApp.Models.Tesaduf
             _timer = new Timer(DoWork, null, TimeSpan.Zero,
                 TimeSpan.FromSeconds(1));
             _timer2 = new Timer(DoWork2, null, TimeSpan.Zero,
-                TimeSpan.FromMilliseconds(500));
+                TimeSpan.FromMilliseconds(1000));
 
             return Task.CompletedTask;
         }
