@@ -35,10 +35,10 @@ namespace CoincidenceApp.Controllers
             {
                 entity.Sayac.ToString(),
                 entity.GelenDeger,
-                zaman.Saniye.ToString(),
-                zaman.Dakika.ToString(),
-                zaman.Saat.ToString(),
-                zaman.Gun.ToString()
+                zaman.Saniye.ToString(String.Format("00")),
+                zaman.Dakika.ToString(String.Format("00")),
+                zaman.Saat.ToString(String.Format("00")),
+                zaman.Gun.ToString(String.Format("00"))
             };
 
         }
