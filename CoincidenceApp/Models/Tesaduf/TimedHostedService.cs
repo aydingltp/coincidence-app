@@ -48,7 +48,7 @@ namespace CoincidenceApp.Models.Tesaduf
                 var _db = scope.ServiceProvider.GetRequiredService<DataContext>();
 
                 var harfler = " .AaBbCcÇçDdEeFfGgĞğHhİiIıJjKkLlMmNnOoÖöPpRrSsŞşTtUuÜüVvYyZz";
-                var stringChars = new char[27];
+                var stringChars = new char[35];
                 var random = new Random();
 
                 for (int i = 0; i < stringChars.Length; i++)
@@ -57,24 +57,20 @@ namespace CoincidenceApp.Models.Tesaduf
                 }
                 var uretilenKelime = new String(stringChars);
                 var lastEntity = _db.SonDegerler.OrderBy(p => p.Id).FirstOrDefault();
-                //var lastEntity = _db.SonDegerler.Find(1);
-
-                //var lastEntity = _db.TesadufModels.OrderByDescending(p => p.Id).FirstOrDefault();
-
+                
+                if (uretilenKelime == "Tesadüf Anlamlı Şeyler Yaratabilir." )
+                {
+                    //StopAsync(DoWork();
+                    StopAsync(CancellationToken.None);
+                    return;
+                }
+                
                 if (lastEntity != null)
                 {
-                    var entity = new TesadufModel()
-                    {
-                        Sayac = lastEntity.Sayac + 1,
-                        GelenDeger = uretilenKelime
-                    };
-                    //_db.TesadufModels.Add(entity);
                     lastEntity.Sayac = lastEntity.Sayac + 1;
                     lastEntity.GelenDeger = uretilenKelime;
                     _db.Entry(lastEntity).State = EntityState.Modified;
-
                     _db.SaveChanges();
-                    //return finalString;
                 }
                 else
                 {
@@ -83,12 +79,6 @@ namespace CoincidenceApp.Models.Tesaduf
                         Sayac = 1,
                         GelenDeger = uretilenKelime
                     };
-                    //var entity = new TesadufModel()
-                    //{
-                    //    Sayac = 1,
-                    //    GelenDeger = uretilenKelime
-                    //};
-                    //_db.TesadufModels.Add(entity);
                     _db.SonDegerler.Add(entity2);
 
                      _db.SaveChanges();
@@ -107,16 +97,16 @@ namespace CoincidenceApp.Models.Tesaduf
                 {
                     var time = new Zaman
                     {
-                        Saniye = 0, //time.Saniye,
-                        Dakika = 0, //time.Dakika,
-                        Saat = 0, //time.Saat,
-                        Gun = 0, //time.Gun
+                        Saniye = 0, 
+                        Dakika = 0, 
+                        Saat = 0, 
+                        Gun = 0, 
                     };
                    
                     _db.Zamanlar.Add(time);
                     _db.SaveChanges();
                 }
-                // 
+                
                 if (entity != null)
                 {
                     _time.Saniye = entity.Saniye;
@@ -151,21 +141,6 @@ namespace CoincidenceApp.Models.Tesaduf
                     _db.Entry(entity).State = EntityState.Modified;
                     _db.SaveChanges();
                 }
-                /*else
-                {
-                    var entity2 = new Zaman
-                    {
-                        Saniye = time.Saniye,
-                        Dakika = time.Dakika,
-                        Saat = time.Saat,
-                        Gun = time.Gun
-                    };
-                    _db.Zamanlar.Add(entity2);
-                    _db.SaveChanges();
-                }*/
-
-                //_logger.LogInformation(
-                //    "Timed Hosted Service is working. Count: {Count}", executionCount);
             }
         }
         public Task StopAsync(CancellationToken stoppingToken)

@@ -4,9 +4,9 @@
   position: absolute;
   z-index: 10;
   width: 700px;
-  height: 480px;
+  height: 560px;
   background: #00000036;
-  top: 40%;
+  top: 30%;
   left: 35%;
   margin: -100px 0 0 -100px;
   padding: 20px;
@@ -55,6 +55,7 @@ h1,h2,h3,h4{
   text-align: center;
 }
 .description{
+  text-align: center !important;
   margin: 0px 5px;
   color: rgba(255, 255, 255, 0.52);
   font-size: 0.8rem;
@@ -97,12 +98,10 @@ h1,h2,h3,h4{
 @media only screen and (max-width: 769px) {
   .panel{
     width: 95%;
-    height: 60%;
-    background: #00000036;
+    height: 410px;
     top: 30%;
-    left: 27%;
-    margin: -100px 0 0 -100px;
-    padding: 20px;
+    left: 29%;
+    padding: 10px;
   }
   .baslik{
     font-size: 1rem ;
@@ -150,4 +149,9 @@ h1,h2,h3,h4{
     font-size: 0.5rem;
   }
 }
+@media only screen and (max-width: 380px) {
+  .panel{
 
+  }
+
+}
