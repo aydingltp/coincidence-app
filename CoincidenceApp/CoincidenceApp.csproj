@@ -55,6 +55,10 @@
     <ItemGroup>
       <Content Include="ClientApp\src\assets\css\.DS_Store" />
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="ClientApp\src\assets\css\images" />
+      <Folder Include="ClientApp\src\assets\images" />
+    </ItemGroup>
 
 
 </Project>

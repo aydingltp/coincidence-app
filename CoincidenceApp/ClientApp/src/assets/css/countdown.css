@@ -5,7 +5,7 @@
   z-index: 10;
   width: 700px;
   height: 560px;
-  background: #00000036;
+  background: rgba(0, 0, 0, 0.21);
   top: 30%;
   left: 35%;
   margin: -100px 0 0 -100px;

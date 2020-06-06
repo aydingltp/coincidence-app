@@ -1,12 +1,10 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>Tesadüf Sayacı</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="src/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/assets/css/countdown.css">
 
     <!--===============================================================================================-->
@@ -77,21 +75,16 @@
       /* countdown css */
 
     </style>
+    <link rel="stylesheet" type="text/css" href="src/assets/css/loading.css"/>
+
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app"> </div>
     <script type="application/javascript">
       var audio = new Audio("src/assets/spacewalk.m4a");
       audio.play();
     </script>
     <script src="/dist/build.js"></script>
-    <!-- Scripts -->
-    <script src="src/assets/js/jquery.min.js"></script>
-    <script src="src/assets/js/jquery.dropotron.min.js"></script>
-    <script src="src/assets/js/browser.min.js"></script>
-    <script src="src/assets/js/breakpoints.min.js"></script>
-    <script src="src/assets/js/util.js"></script>
-    <script src="src/assets/js/main.js"></script>
     <script type="application/javascript" src="src/assets/js/particles.js"></script>
     <script type="application/javascript">
       /* ---- particles.js config ---- */
@@ -209,23 +202,6 @@
       /* renk : 4d717d     panel:n 00000036*/
       /* ---- stats.js config ---- */
 
-      var count_particles, stats, update;
-      stats = new Stats;
-      stats.setMode(0);
-      stats.domElement.style.position = 'absolute';
-      stats.domElement.style.left = '0px';
-      stats.domElement.style.top = '0px';
-      document.body.appendChild(stats.domElement);
-      count_particles = document.querySelector('.js-count-particles');
-      update = function () {
-        stats.begin();
-        stats.end();
-        if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-          count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-        }
-        requestAnimationFrame(update);
-      };
-      requestAnimationFrame(update);
     </script>
   </body>
 </html>
