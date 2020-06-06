@@ -31,15 +31,19 @@ namespace CoincidenceApp.Controllers
         {
             var entity = _db.SonDegerler.OrderBy(p => p.Id).FirstOrDefault();
             var zaman = _db.Zamanlar.OrderBy(p => p.Id).FirstOrDefault();
-            return new List<string>
+            if (entity != null && zaman != null)
             {
-                entity.Sayac.ToString(String.Format("000 000 000")),
-                entity.GelenDeger,
-                zaman.Saniye.ToString(String.Format("00")),
-                zaman.Dakika.ToString(String.Format("00")),
-                zaman.Saat.ToString(String.Format("00")),
-                zaman.Gun.ToString(String.Format("00"))
-            };
+                return new List<string>
+                {
+                    entity.Sayac.ToString(String.Format("000 000 000 000")),
+                    entity.GelenDeger,
+                    zaman.Saniye.ToString(String.Format("00")),
+                    zaman.Dakika.ToString(String.Format("00")),
+                    zaman.Saat.ToString(String.Format("00")),
+                    zaman.Gun.ToString(String.Format("00"))
+                };
+            }
+            return null;
         }
 
         // GET: api/Tesaduf/5
