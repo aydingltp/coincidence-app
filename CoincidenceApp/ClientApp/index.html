@@ -6,6 +6,8 @@
 
     <link rel="stylesheet" href="src/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/assets/css/countdown.css">
+    <link rel="stylesheet" href="src/assets/css/scrollingtext.css">
+
 
     <!--===============================================================================================-->
     <style type="text/css">
@@ -81,7 +83,8 @@
   <body>
     <div id="app"> </div>
     <script type="application/javascript">
-      var audio = new Audio("src/assets/spacewalk.m4a");
+      const audio = new Audio("src/assets/spacewalk.m4a");
+      audio.loop = true;
       audio.play();
     </script>
     <script src="/dist/build.js"></script>
@@ -144,7 +147,7 @@
           },
           "move": {
             "enable": true,
-            "speed": 3,
+            "speed": 1,
             "direction": "none",
             "random": false,
             "straight": false,

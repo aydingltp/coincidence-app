@@ -146,10 +146,15 @@ h1,h2,h3,h4{
   .footer{
     font-size: 0.5rem;
   }
+  .scroll-up{
+    width: 300px !important;
+  }
+
 }
 @media only screen and (max-width: 380px) {
   .panel{
 
   }
+
 
 }

@@ -46,17 +46,20 @@
             </div>
           </div>
           <div class="row description">
-            <small>Eski zamanlarda yaşayan bir Tesadüf Tanrısı vardı. En büyük gücü olan zamanla olağanüstü şeyler
-              yaratırdı. Öyle ki insanların bile yapamadığı şeyleri o kolaylıkla yapabiliyordu. Mikrodan makroya gözümüzün
-              gördüğü bütün güzellikleri yaratabilecek bir kudreti vardı. O olağanüstü mükemmel tanrının tek bir eksikliği,
-              noksanlığı vardı : ZAMAN...
-            </small>
+            <div class="scroll-up">
+              <p>Eski zamanlarda yaşayan bir Tesadüf Tanrısı vardı. <br> En büyük gücü olan zamanla olağanüstü şeyler
+                yaratırdı. <br> Öyle ki insanların bile yapamadığı şeyleri o kolaylıkla yapabiliyordu. <br> Mikrodan makroya gözümüzün
+                gördüğü bütün güzellikleri yaratabilecek bir kudreti vardı. <br> O olağanüstü mükemmel tanrının tek bir eksikliği,
+                noksanlığı vardı : <br> ZAMAN...
+              </p>
+            </div>
             <small
               style="margin-top: 5px; margin-left: 35%; color:rgba(255,255,255,0.32); font-family: 'Comic Sans MS',monospace">
               &copy; made by lâvehn - Source on :
               <a href="https://github.com/aydingltp/coincidence-app" style="color: rgba(255,255,255,0.32)">Github</a>
             </small>
           </div>
+
 
         </div>
 
