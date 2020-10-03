@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="loading" :style="isLoading">
+    <div class="lds-ripple">
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<div id="particles-js">
+    <div class="panel" :style="isPanelLoading">
+        <h1 class="baslik">TESADÜF SAYACI</h1>
+
+        <h4>Aranan Cümle : Tesadüf Anlamlı Şeyler Yaratabilir.</h4>
+        <div>
+            <h4>{{bes.GelenDeger}}</h4> <h4>Deneme : {{bes.Sayac}} </h4>
+        </div>
+
+        <div class="row zaman">
+            <div class="col-sm-2">
+                <div class="row round">
+                    {{bes.Gun}}
+                </div>
+                <div class="row round">
+                    <h5><span class="badge badge-info badge-pill">Gün</span></h5>
+                </div>
+            </div>
+            <div class="col tire">:</div>
+            <div class="col-sm-2">
+                <div class="row round">{{bes.Saat}}</div>
+                <div class="row round">
+                    <h5><span class="badge badge-info badge-pill">Saat</span></h5>
+                </div>
+            </div>
+            <div class="col tire">:</div>
+            <div class="col-sm-2">
+                <div class="row round">{{bes.Dakika}}</div>
+                <div class="row round">
+                    <h5><span class="badge badge-info badge-pill">Dakika</span></h5>
+                </div>
+            </div>
+            <div class="col tire">:</div>
+            <div class="col-sm-2">
+                <div class="row round">{{bes.Saniye}}</div>
+                <div class="row round">
+                    <h5><span class="badge badge-info badge-pill">Saniye</span></h5>
+                </div>
+            </div>
+            <div class="text-center">
+                <div class="scroll-up">
+                    <p>
+                        Eski zamanlarda yaşayan bir Tesadüf Tanrısı vardı. <br> En büyük gücü olan zamanla olağanüstü şeyler
+                        yaratırdı. <br> Öyle ki insanların bile yapamadığı şeyleri o kolaylıkla yapabiliyordu. <br> Mikrodan makroya gözümüzün
+                        gördüğü bütün güzellikleri yaratabilecek bir kudreti vardı. <br> O olağanüstü mükemmel tanrının tek bir eksikliği,
+                        noksanlığı vardı : <br> ZAMAN...
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center footer">
+            &copy; made by lâvehn - v1.2 Source on :
+            <a href="https://github.com/aydingltp/coincidence-app" style="color: rgba(255,255,255,0.32)">Github</a>
+
+        </div>
+
+    </div>
+</div>

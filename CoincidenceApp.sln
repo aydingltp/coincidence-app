@@ -1,6 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoincidenceApp", "CoincidenceApp\CoincidenceApp.csproj", "{E1D4E2A1-5343-439F-A6F5-A8A485BB93FA}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoincidenceApp", "CoincidenceApp\CoincidenceApp.csproj", "{E1D4E2A1-5343-439F-A6F5-A8A485BB93FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesadufApp", "TesadufApp\TesadufApp.csproj", "{2E481FE5-02AB-4591-9100-D00EB4ECA19D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +17,15 @@ Global
 		{E1D4E2A1-5343-439F-A6F5-A8A485BB93FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1D4E2A1-5343-439F-A6F5-A8A485BB93FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1D4E2A1-5343-439F-A6F5-A8A485BB93FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E481FE5-02AB-4591-9100-D00EB4ECA19D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E481FE5-02AB-4591-9100-D00EB4ECA19D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E481FE5-02AB-4591-9100-D00EB4ECA19D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E481FE5-02AB-4591-9100-D00EB4ECA19D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA87C3F5-6B33-4B8C-B964-07F3E2CF6975}
 	EndGlobalSection
 EndGlobal
