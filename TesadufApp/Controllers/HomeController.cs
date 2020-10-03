@@ -56,7 +56,9 @@ namespace TesadufApp.Controllers
         }
         public string GetDatas()
         {
-            var entity = _db.SonYuzYirmiDegerler.OrderBy(p => p.Id).Take(120).ToList();
+            var entity = _db.SonDegerlerAlls.OrderByDescending(p => p.Id).Take(150).ToList();
+            entity.Reverse();
+          
             if (entity != null)
             {
                 return JsonConvert.SerializeObject(entity);

@@ -7,7 +7,8 @@ var app = new Vue({
             url: "/home/getdatas",
             bes: [],
             yuzyirmi: [],
-            item: 0
+            item: 0,
+            screenReady: false
         }
     },
     methods: {
@@ -17,6 +18,7 @@ var app = new Vue({
                     this.yuzyirmi = null;
                     this.yuzyirmi = obj.data;
                     console.log("data geldi");
+                    this.item = 0;
                 })
             }, 30000)
         },
@@ -24,17 +26,13 @@ var app = new Vue({
             setInterval(() => {
                 this.bes = this.yuzyirmi[this.item];
                 this.item = this.item + 1;
-                if (this.item==120) {
-                    this.item = 0;
-                }
-                console.log("updatedata= Sayac: " + this.bes.Sayac)
-
-            }, 250)
+                //console.log("updatedata= Sayac: " + this.bes.Sayac)
+            }, 200)
         }
     },
     computed: {
         isLoading() {
-            if (this.bes == null) {
+            if (this.screenReady == false) {
                 return {
                     display: "block"
                 }
@@ -46,7 +44,7 @@ var app = new Vue({
             }
         },
         isPanelLoading() {
-            if (this.bes == null) {
+            if (this.screenReady == false) {
                 return {
                     display: "none"
                 }
@@ -65,6 +63,7 @@ var app = new Vue({
         axios.get(this.url, {}).then(obj => {
             this.yuzyirmi = null;
             this.yuzyirmi = obj.data;
+            this.screenReady = true;
         })
     }
 })

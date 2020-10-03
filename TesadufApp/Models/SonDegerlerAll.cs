@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TesadufApp.Models
 {
-    public class SonYuzYirmiDeger
+    public class SonDegerlerAll
     {
         public int Id { get; set; }
         public Int64 Sayac { get; set; }

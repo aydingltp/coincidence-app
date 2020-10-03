@@ -7,3 +7,6 @@ blogging.db
 .idea
 .editorconfig
 .vs/
+/TesadufApp/Controllers/TesadufController.cs
+/TesadufApp/Migrations
+.gitignore

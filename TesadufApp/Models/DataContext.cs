@@ -16,7 +16,7 @@ namespace TesadufApp.Models
 
         public DbSet<SonDeger> SonDegerler { get; set; }
         public DbSet<Zaman> Zamanlar { get; set; }
-        public DbSet<SonYuzYirmiDeger> SonYuzYirmiDegerler { get; set; }
+        public DbSet<SonDegerlerAll> SonDegerlerAlls { get; set; }
         public DbSet<DataAll> DataAlls { get; set; }
 
     }

@@ -28,7 +28,7 @@ namespace TesadufApp.Models
             _timer = new Timer(DoWork, null, TimeSpan.Zero,
                 TimeSpan.FromSeconds(1));
             _timer2 = new Timer(DoWork2, null, TimeSpan.Zero,
-                TimeSpan.FromMilliseconds(250));
+                TimeSpan.FromMilliseconds(200));
 
             return Task.CompletedTask;
         }
@@ -38,10 +38,12 @@ namespace TesadufApp.Models
         {
             using (IServiceScope scope = _provider.CreateScope())
             {
+                Stopwatch sw = new Stopwatch();
+
                 var _db = scope.ServiceProvider.GetRequiredService<DataContext>();
 
                 var harfler = " .AaBbCcÇçDdEeFfGgĞğHhİiIıJjKkLlMmNnOoÖöPpRrSsŞşTtUuÜüVvYyZz";
-                var stringChars = new char[35];
+                var stringChars = new char[24];
                 var random = new Random();
 
                 for (int i = 0; i < stringChars.Length; i++)
@@ -50,9 +52,8 @@ namespace TesadufApp.Models
                 }
                 var uretilenKelime = new String(stringChars);
                 var lastEntity = _db.SonDegerler.OrderBy(p => p.Id).FirstOrDefault();
-                //var lastEntity = _db.DataAlls.OrderBy(p => p.Id).FirstOrDefault();
 
-                if (uretilenKelime == "Tesadüf Anlamlı Şeyler Yaratabilir.")
+                if (uretilenKelime == "Kainat tesadüfen oluştu.")
                 {
                     //StopAsync(DoWork();
                     StopAsync(CancellationToken.None);
@@ -64,14 +65,14 @@ namespace TesadufApp.Models
                     var lastTime = _db.Zamanlar.FirstOrDefault();
                     //var lastDataAll = _db.DataAlls.FirstOrDefault();
 
-                    var sonYuzHepsi = _db.SonYuzYirmiDegerler.ToList();
+                    var sonYuzHepsi = _db.SonDegerlerAlls.ToList();
 
-                    if (sonYuzHepsi.Count > 240)
+                    if (sonYuzHepsi.Count > 600)
                     {
-                        var ilkYuzYirmi = _db.SonYuzYirmiDegerler.Take(120);
-                        _db.SonYuzYirmiDegerler.RemoveRange(ilkYuzYirmi);
+                        var ilkYuzYirmi = _db.SonDegerlerAlls.Take(300);
+                        _db.SonDegerlerAlls.RemoveRange(ilkYuzYirmi);
                     }
-                    var sonyuzEntity = new SonYuzYirmiDeger
+                    var sonyuzEntity = new SonDegerlerAll
                     {
                         Sayac = lastEntity.Sayac,
                         GelenDeger = lastEntity.GelenDeger,
@@ -80,10 +81,11 @@ namespace TesadufApp.Models
                         Saat = lastTime.Saat,
                         Gun = lastTime.Gun
                     };
-                    _db.SonYuzYirmiDegerler.Add(sonyuzEntity);
+                    _db.SonDegerlerAlls.Add(sonyuzEntity);
 
                     lastEntity.Sayac = lastEntity.Sayac + 1;
                     lastEntity.GelenDeger = uretilenKelime;
+                   
                     _db.Entry(lastEntity).State = EntityState.Modified;
 
                     _db.SaveChanges();
