@@ -87,22 +87,11 @@ namespace TesadufApp.Models
                     lastEntity.GelenDeger = uretilenKelime;
                    
                     _db.Entry(lastEntity).State = EntityState.Modified;
-
+                    
                     _db.SaveChanges();
                 }
                 else
                 {
-                    //var newEntity = new DataAll()
-                    //{
-                    //    Sayac = 0,
-                    //    GelenDeger = uretilenKelime,
-                    //    Saniye = 0,
-                    //    Dakika = 0,
-                    //    Saat = 0,
-                    //    Gun = 0
-                    //};
-                    //_db.DataAlls.Add(newEntity);
-
                     var entity2 = new SonDeger()
                     {
                         Sayac = 1,

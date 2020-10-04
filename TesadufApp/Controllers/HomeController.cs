@@ -56,12 +56,28 @@ namespace TesadufApp.Controllers
         }
         public string GetDatas()
         {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
             var entity = _db.SonDegerlerAlls.OrderByDescending(p => p.Id).Take(150).ToList();
             entity.Reverse();
-          
+            var json = new List<JsonData>();
+            foreach (var item in entity)
+            {
+                json.Add(new JsonData
+                {
+                    GelenDeger = item.GelenDeger,
+                    Sayac = item.Sayac.ToString(String.Format("000 000 000 000")),
+                    Saniye = item.Saniye.ToString(String.Format("00")),
+                    Dakika = item.Dakika.ToString(String.Format("00")),
+                    Saat = item.Saat.ToString(String.Format("00")),
+                    Gun = item.Gun.ToString(String.Format("00"))
+                });
+            }
+            sw.Stop();
+            Console.WriteLine(sw.ElapsedMilliseconds);
             if (entity != null)
             {
-                return JsonConvert.SerializeObject(entity);
+                return JsonConvert.SerializeObject(json);
             }
             return null;
         }

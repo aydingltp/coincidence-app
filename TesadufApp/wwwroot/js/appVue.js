@@ -1,3 +1,15 @@
+//import moment from 'moment' 
+
+//Vue.filter('formatDate', function (value) {
+//    if (value) {
+//        return moment(String(value)).format('00')
+//    }
+//}
+//import numeral from 'numeral.js';
+//import numFormat from 'vue-filter-number-format';
+
+//Vue.filter('numFormat', numFormat(numeral));
+
 var app = new Vue({
     el: '#app',
     data() {
@@ -8,7 +20,8 @@ var app = new Vue({
             bes: [],
             yuzyirmi: [],
             item: 0,
-            screenReady: false
+            screenReady: false,
+            sayi: 123456789
         }
     },
     methods: {
@@ -32,7 +45,7 @@ var app = new Vue({
     },
     computed: {
         isLoading() {
-            if (this.screenReady == false) {
+            if (this.bes == null) {
                 return {
                     display: "block"
                 }
@@ -44,7 +57,7 @@ var app = new Vue({
             }
         },
         isPanelLoading() {
-            if (this.screenReady == false) {
+            if (this.bes == null) {
                 return {
                     display: "none"
                 }
@@ -63,7 +76,15 @@ var app = new Vue({
         axios.get(this.url, {}).then(obj => {
             this.yuzyirmi = null;
             this.yuzyirmi = obj.data;
-            this.screenReady = true;
-        })
+        });
+        //console.log(new Intl.NumberFormat().format(this.sayi))
     }
+    //filters: {
+    //    toTime(value) {
+    //        return `0${value}`
+    //    },
+    //    toLongNumber(value) {
+    //        return `00${value}`
+    //    },
+    //}
 })
