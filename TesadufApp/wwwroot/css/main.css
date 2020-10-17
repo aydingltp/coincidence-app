@@ -1,3 +1,45 @@
+body {
+    /*background: url("/images/resim.jpg");*/
+    animation: image 100s infinite normal;
+    -webkit-animation: image 100s infinite normal;
+    -moz-animation: image 100s infinite normal;
+    /*animation-delay: 15s;*/
+}
+
+@-webkit-keyframes image {
+    0% {
+        background: url("/images/universe61.jpg") no-repeat center center fixed;
+    }
+    10% {
+        background: url("/images/tirtil2.jpg") no-repeat center center fixed;
+    }
+
+    20% {
+        background: url("/images/kelebek2.jpg") no-repeat center center fixed;
+    }
+
+    30% {
+        background: url("/images/resim3.jpg") no-repeat center center fixed;
+    }
+
+    40% {
+        background: url("/images/kedi.jpg") no-repeat center center fixed;
+    }
+
+    50% {
+        background: url("/images/resim2.jpg") no-repeat center center fixed;
+    }
+
+    60% {
+        background: url("/images/resim5.jpg") no-repeat center center fixed;
+    }
+
+    100% {
+        background: url("/images/resim11.jpg") no-repeat center center fixed;
+    }
+}
+
+
 .panel {
     /*font-family: 'Source Sans Pro';*/
     font-size: 1.3em;
@@ -67,7 +109,7 @@ h1, h2, h3, h4 {
 .footer {
     font-size: 12px;
     margin-top: 5px;
-    color: rgba(255,255,255,0.32);
+    color: rgba(255,255,255,0.45);
     font-family: 'Comic Sans MS',monospace";
 }
 

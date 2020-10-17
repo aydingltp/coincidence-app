@@ -58,7 +58,7 @@ namespace TesadufApp.Controllers
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            var entity = _db.SonDegerlerAlls.OrderByDescending(p => p.Id).Take(150).ToList();
+            var entity = _db.SonDegerlerAlls.OrderByDescending(p => p.Id).Take(300).ToList();
             entity.Reverse();
             var json = new List<JsonData>();
             foreach (var item in entity)
