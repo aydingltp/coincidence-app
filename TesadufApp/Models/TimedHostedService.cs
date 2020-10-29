@@ -40,8 +40,8 @@ namespace TesadufApp.Models
             {
                 var _db = scope.ServiceProvider.GetRequiredService<DataContext>();
 
-                var harfler = " .AaBbCcÇçDdEeFfGgĞğHhİiIıJjKkLlMmNnOoÖöPpRrSsŞşTtUuÜüVvYyZz";
-                var stringChars = new char[24];
+                var harfler = " .AaBbCcÇçDdEeFfGgĞğHhİiIıJjKkLlMmNnOoÖöPpRrSsŞşTtUuÜüVvYyZz!";
+                var stringChars = new char[25];
                 var random = new Random();
 
                 for (int i = 0; i < stringChars.Length; i++)
@@ -52,7 +52,7 @@ namespace TesadufApp.Models
                 var lastEntity = _db.SonDegerler.OrderBy(p => p.Id).FirstOrDefault();
                 var lastTime = _db.Zamanlar.FirstOrDefault();
 
-                if (uretilenKelime == "Kainat tesadüfen oluştu.")
+                if (uretilenKelime == "Kainat tesadüfen oluştu!")
                 {
                     //StopAsync(DoWork();
                     StopAsync(CancellationToken.None);

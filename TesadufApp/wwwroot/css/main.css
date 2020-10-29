@@ -1,5 +1,6 @@
 body {
     /*background: url("/images/resim.jpg");*/
+    /*background-color: rgba(31, 79, 105, 0.48);*/
     animation: image 100s infinite normal;
     -webkit-animation: image 100s infinite normal;
     -moz-animation: image 100s infinite normal;
@@ -8,34 +9,38 @@ body {
 
 @-webkit-keyframes image {
     0% {
-        background: url("/images/universe61.jpg") no-repeat center center fixed;
-    }
-    10% {
-        background: url("/images/tirtil2.jpg") no-repeat center center fixed;
+        background: url("/images/resim9.jpg") no-repeat fixed;
+        background-size: cover;
     }
 
     20% {
-        background: url("/images/kelebek2.jpg") no-repeat center center fixed;
+        background: url("/images/tirtil2.jpg") no-repeat fixed;
+        background-size: cover;
     }
 
-    30% {
-        background: url("/images/resim3.jpg") no-repeat center center fixed;
-    }
-
-    40% {
-        background: url("/images/kedi.jpg") no-repeat center center fixed;
+    35% {
+        background: url("/images/kelebek2.jpg") no-repeat fixed;
+        background-size: cover;
     }
 
     50% {
-        background: url("/images/resim2.jpg") no-repeat center center fixed;
+        background: url("/images/resim3.jpg") no-repeat fixed;
+        background-size: cover;
     }
 
     60% {
-        background: url("/images/resim5.jpg") no-repeat center center fixed;
+        background: url("/images/kedi.jpg") no-repeat fixed;
+        background-size: cover;
+    }
+
+    70% {
+        background: url("/images/resim2.jpg") no-repeat fixed;
+        background-size: cover;
     }
 
     100% {
-        background: url("/images/resim11.jpg") no-repeat center center fixed;
+        background: url("/images/resim11.jpg") no-repeat fixed;
+        background-size: cover;
     }
 }
 
@@ -110,7 +115,7 @@ h1, h2, h3, h4 {
     font-size: 12px;
     margin-top: 5px;
     color: rgba(255,255,255,0.45);
-    font-family: 'Comic Sans MS',monospace";
+    font-family: 'Comic Sans MS','monospace';
 }
 
 .lds-ripple {
@@ -208,15 +213,66 @@ h1, h2, h3, h4 {
         width: 100% !important;
         margin: 5px 5px;
     }
+
         .scroll-up p {
             font-size: 0.7rem;
         }
-    .footer{
-        font-size:10px;
+
+    .footer {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    body {
+        background-color: rgba(31, 79, 105, 0.48);
+        animation: image2 100s infinite normal;
+        -webkit-animation: image2 100s infinite normal;
+        -moz-animation: image2 100s infinite normal;
+    }
+
+    @-webkit-keyframes image2 {
+        0% {
+            background-size: cover;
+            background: url("/images/mobile/m1.jpg") no-repeat round;
+        }
+
+        20% {
+            background-size: cover;
+            background: url("/images/mobile/m2.jpg") no-repeat round;
+        }
+
+        35% {
+            background-size: cover;
+            background: url("/images/mobile/m3.jpg") no-repeat round;
+        }
+
+        50% {
+            background-size: cover;
+            background: url("/images/mobile/m4.jpg") no-repeat round;
+        }
+
+        60% {
+            background-size: cover;
+            background: url("/images/mobile/m5.jpg") no-repeat round;
+        }
+
+        70% {
+            background-size: cover;
+            background: url("/images/mobile/m6.jpg") no-repeat round;
+        }
+
+        100% {
+            background-size: cover;
+            background: url("/images/mobile/m7.jpg") no-repeat round;
+        }
     }
 }
 
 @media only screen and (max-width: 380px) {
+    /*body {
+        background-color: rgba(31, 79, 105, 0.48);
+    }*/
     .panel {
         height: 465px;
     }
