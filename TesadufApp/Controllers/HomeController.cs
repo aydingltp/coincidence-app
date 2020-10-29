@@ -56,8 +56,6 @@ namespace TesadufApp.Controllers
         }
         public string GetDatas()
         {
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
             var entity = _db.SonDegerlerAlls.OrderByDescending(p => p.Id).Take(300).ToList();
             entity.Reverse();
             var json = new List<JsonData>();
@@ -73,8 +71,6 @@ namespace TesadufApp.Controllers
                     Gun = item.Gun.ToString(String.Format("00"))
                 });
             }
-            sw.Stop();
-            Console.WriteLine(sw.ElapsedMilliseconds);
             if (entity != null)
             {
                 return JsonConvert.SerializeObject(json);
