@@ -14,6 +14,8 @@ namespace TesadufApp.Models
     {
         private Timer _timer;
         private Timer _timer2;
+        private string letters = " AaBbCcÇçDdEeFfGgĞğHhİiIıJjKkLlMmNnOoÖöPpRrSsŞşTtUuÜüVvYyZz!";
+        private int wordLength = "Kainat tesadüfen oluştu!".Length;
 
         Zaman _time = new Zaman();
 
@@ -24,15 +26,15 @@ namespace TesadufApp.Models
             _provider = serviceProvider;
         }
         public Task StartAsync(CancellationToken stoppingToken)
-        { 
+        {
             _timer = new Timer(DoWork, null, TimeSpan.Zero,
                 TimeSpan.FromSeconds(1));
             _timer2 = new Timer(DoWork2, null, TimeSpan.Zero,
                 TimeSpan.FromMilliseconds(100));
 
             return Task.CompletedTask;
-        }    
-         
+        }
+
 
         private void DoWork2(object state)
         {
@@ -40,13 +42,12 @@ namespace TesadufApp.Models
             {
                 var _db = scope.ServiceProvider.GetRequiredService<DataContext>();
 
-                var harfler = " .AaBbCcÇçDdEeFfGgĞğHhİiIıJjKkLlMmNnOoÖöPpRrSsŞşTtUuÜüVvYyZz!";
-                var stringChars = new char[25];
+                var stringChars = new char[wordLength];
                 var random = new Random();
 
                 for (int i = 0; i < stringChars.Length; i++)
                 {
-                    stringChars[i] = harfler[random.Next(harfler.Length)];
+                    stringChars[i] = letters[random.Next(letters.Length)];
                 }
                 var uretilenKelime = new String(stringChars);
                 var lastEntity = _db.SonDegerler.OrderBy(p => p.Id).FirstOrDefault();
@@ -54,6 +55,17 @@ namespace TesadufApp.Models
 
                 if (uretilenKelime == "Kainat tesadüfen oluştu!")
                 {
+                    var mirEntity = _db.SonDegerlerAlls.OrderByDescending(p => p.Id).Take(300).ToList();
+                    foreach (var item in mirEntity)
+                    {
+                        item.GelenDeger = uretilenKelime;
+                        item.Sayac = lastEntity.Sayac;
+                        item.Saniye = lastTime.Saniye;
+                        item.Dakika = lastTime.Dakika;
+                        item.Saat = lastTime.Saat;
+                        item.Gun = lastTime.Gun;
+                    }
+                    _db.SaveChanges();
                     //StopAsync(DoWork();
                     StopAsync(CancellationToken.None);
                     return;
@@ -64,8 +76,8 @@ namespace TesadufApp.Models
                     var sonYuzHepsi = _db.SonDegerlerAlls.Count();
                     if (sonYuzHepsi > 1200)
                     {
-                        var ilkYuzYirmi = _db.SonDegerlerAlls.Take(300);
-                        _db.SonDegerlerAlls.RemoveRange(ilkYuzYirmi);
+                        var ilkUcYuz = _db.SonDegerlerAlls.Take(300);
+                        _db.SonDegerlerAlls.RemoveRange(ilkUcYuz);
                     }
 
                     var sonyuzEntity = new SonDegerlerAll
@@ -81,8 +93,6 @@ namespace TesadufApp.Models
 
                     lastEntity.Sayac = lastEntity.Sayac + 1;
                     lastEntity.GelenDeger = uretilenKelime;
-
-                    _db.Entry(lastEntity).State = EntityState.Modified;
 
                     _db.SaveChanges();
                 }
@@ -158,7 +168,7 @@ namespace TesadufApp.Models
                     entity.Dakika = _time.Dakika;
                     entity.Saat = _time.Saat;
                     entity.Gun = _time.Gun;
-                    _db.Entry(entity).State = EntityState.Modified;
+
                     _db.SaveChanges();
                 }
             }
