@@ -1,15 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using TesadufApp.Models;
 
-namespace TesadufApp.Models
+namespace TesadufApp.Data
 {
     public class DataContext: DbContext
     {
-        public DataContext(DbContextOptions<DataContext> options)
-           : base(options)
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
 
         }
@@ -17,7 +13,7 @@ namespace TesadufApp.Models
         public DbSet<SonDeger> SonDegerler { get; set; }
         public DbSet<Zaman> Zamanlar { get; set; }
         public DbSet<SonDegerlerAll> SonDegerlerAlls { get; set; }
-        //public DbSet<DataAll> DataAlls { get; set; }
+        public DbSet<Sayac> Sayacs { get; set; }
 
     }
 }
